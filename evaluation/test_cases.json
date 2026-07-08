@@ -1,0 +1,148 @@
+{
+  "test_cases": [
+    {
+      "id": "TC001",
+      "category": "single_transaction",
+      "query": "I am spending ₹50,000 on flights. Which card should I use?",
+      "expected_intent": "single_transaction",
+      "expected_category": "flights",
+      "expected_amount": 50000,
+      "expected_cards": ["Axis Bank Atlas Credit Card", "American Express Platinum Travel Credit Card"],
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "amount_extraction": true,
+        "category_extraction": true,
+        "retrieval_relevance": true,
+        "calculation_accuracy": true,
+        "recommendation_quality": true
+      }
+    },
+    {
+      "id": "TC002",
+      "category": "single_transaction",
+      "query": "Which card is best for ₹1,00,000 hotel booking?",
+      "expected_intent": "single_transaction",
+      "expected_category": "hotels",
+      "expected_amount": 100000,
+      "expected_cards": ["Axis Bank Atlas Credit Card", "HDFC Diners Club Black"],
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "amount_extraction": true,
+        "category_extraction": true,
+        "retrieval_relevance": true,
+        "calculation_accuracy": true,
+        "recommendation_quality": true
+      }
+    },
+    {
+      "id": "TC003",
+      "category": "card_comparison",
+      "query": "Compare Axis Atlas and HDFC Infinia for flight rewards",
+      "expected_intent": "card_comparison",
+      "expected_category": "flights",
+      "expected_cards": ["Axis Bank Atlas Credit Card", "HDFC Infinia"],
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "card_identification": true,
+        "category_extraction": true,
+        "retrieval_relevance": true,
+        "comparison_completeness": true
+      }
+    },
+    {
+      "id": "TC004",
+      "category": "general_query",
+      "query": "What are the annual fees for HDFC Diners Club Black?",
+      "expected_intent": "general_query",
+      "expected_cards": ["HDFC Diners Club Black"],
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "card_identification": true,
+        "retrieval_relevance": true,
+        "answer_accuracy": true
+      }
+    },
+    {
+      "id": "TC005",
+      "category": "edge_case",
+      "query": "I want to spend ₹10,000 on groceries",
+      "expected_intent": "single_transaction",
+      "expected_category": "groceries",
+      "expected_amount": 10000,
+      "expected_cards": ["SBI Cashback Credit Card"],
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "amount_extraction": true,
+        "category_extraction": true,
+        "retrieval_relevance": true,
+        "calculation_accuracy": true
+      }
+    },
+    {
+      "id": "TC006",
+      "category": "monthly_optimization",
+      "query": "I spend ₹30,000 on dining and ₹20,000 on shopping monthly. Which card should I get?",
+      "expected_intent": "monthly_optimization",
+      "expected_categories": ["dining", "shopping"],
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "multi_category_extraction": true,
+        "amount_extraction": true,
+        "recommendation_quality": true
+      }
+    },
+    {
+      "id": "TC007",
+      "category": "clarification_needed",
+      "query": "Which card is best?",
+      "expected_intent": "general_query",
+      "evaluation_criteria": {
+        "clarification_triggered": true,
+        "clarification_quality": true
+      }
+    },
+    {
+      "id": "TC008",
+      "category": "exclusions",
+      "query": "What are the exclusions for Axis Atlas flight rewards?",
+      "expected_intent": "general_query",
+      "expected_cards": ["Axis Bank Atlas Credit Card"],
+      "expected_category": "flights",
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "card_identification": true,
+        "retrieval_relevance": true,
+        "exclusion_accuracy": true
+      }
+    },
+    {
+      "id": "TC009",
+      "category": "high_value",
+      "query": "I am spending ₹5,00,000 on flights. Which card gives maximum rewards?",
+      "expected_intent": "single_transaction",
+      "expected_category": "flights",
+      "expected_amount": 500000,
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "amount_extraction": true,
+        "cap_handling": true,
+        "calculation_accuracy": true,
+        "recommendation_quality": true
+      }
+    },
+    {
+      "id": "TC010",
+      "category": "fuel_category",
+      "query": "Best card for ₹5,000 fuel expenses?",
+      "expected_intent": "single_transaction",
+      "expected_category": "fuel",
+      "expected_amount": 5000,
+      "evaluation_criteria": {
+        "intent_classification": true,
+        "amount_extraction": true,
+        "category_extraction": true,
+        "retrieval_relevance": true
+      }
+    }
+  ]
+}
